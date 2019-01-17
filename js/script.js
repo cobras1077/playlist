@@ -37,7 +37,9 @@ var songLinks=[
     "https://www.youtube.com/watch?v=r9bp50MHLZM",
     "https://www.youtube.com/watch?v=4H87atMwURc",
     "https://www.youtube.com/watch?v=txCCYBMKdB0",
-    "",
+    "https://www.youtube.com/watch?v=dFtWL7VyrAc",
+    "https://www.youtube.com/watch?v=rOXPej6j11A",
+    "https://www.youtube.com/watch?v=mkMVyw-7avI"
     ];
 // BELOW Add 4 More arrays to store images_links, atists, song lengths, and links for each song
 // Make sure they match the same order as your array above
@@ -47,7 +49,22 @@ var songLinks=[
 
     // BELOW Use forEach Loop to display the data from each of your array's in the correct div
 
-}
+
+songs.forEach(function(song){
+    $("#songs").append("<p>"+song+"</p>");
+});
+artists.forEach(function(artist){
+    $("#artists").append("<p>"+artist+"</p>");
+});
+imgLinks.forEach(function(image){
+    $("#images").append("<img src=\"" +image+"\">");
+});
+songLength.forEach(function(song){
+    $("#lengths").append("<p>"+song+"</p>");
+});
+songLinks.forEach(function(song){
+    $("#links").append("<a href=\""+song+"\">Link</a>");
+});
 
 function emptySongInfo(){
     $("#songs").empty();
