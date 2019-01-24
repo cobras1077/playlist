@@ -50,7 +50,8 @@ var songLinks=[
     // BELOW Use forEach Loop to display the data from each of your array's in the correct div
 
 
-songs.forEach(function(song){
+function displaySongInfo(){
+    songs.forEach(function(song){
     $("#songs").append("<p>"+song+"</p>");
 });
 artists.forEach(function(artist){
@@ -65,18 +66,34 @@ songLength.forEach(function(song){
 songLinks.forEach(function(song){
     $("#links").append("<a href=\""+song+"\">Link</a>");
 });
-
+}
 function emptySongInfo(){
     $("#songs").empty();
+    $("#images").empty();
+    $("#artists").empty();
+    $("#lengths").empty();
+    $("#links").empty();
     // Use jQuery to empty all of the remaining divs
-
+    
 
 }
 
 
 function addSongInfo(){
     // BELOW write the code to add new items to each of the arrays.
+    
 
+    var inputSong=$("#song").val();
+    var inputArtist=$("#artist").val();
+    var inputLength=$("#length").val();
+    var inputImage=$("#image").val();
+    var inputLink=$("#link").val();
+    
+    songs.push(inputSong);
+    artists.push(inputArtist);
+    imgLinks.push(inputImage);
+    songLength.push(inputLength);
+    songLinks.push(inputLink);
 
 }
 
@@ -87,3 +104,20 @@ $("#add").click(function() {
 });
 
 displaySongInfo();
+$("#delete").click(function (){
+    emptySongInfo();
+    deleteSongInfo();
+    displaySongInfo();
+});
+function deleteSongInfo(){
+    var removeSong=$("#song").val();
+    var removeArtist=$("#artist").val();
+    var removeLength=$("#length").val();
+    var removeImage=$("#image").val();
+    var removeLink=$("#link").val();
+    
+    songs= songs.filter(songs => songs !== removeSong);
+    var indexNum= songs.indexOf(removeSong);
+    artists.splice(indexNum,1);
+    
+}
